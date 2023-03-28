@@ -22,4 +22,4 @@ jobs:
       - name: test print
         env:
           DOCKER_REPOSITORY: ${{ env.DOCKER_REPOSITORY }}
-        run: echo "$DOCKER_REPOSITORY"
+        run: echo $DOCKER_REPOSITORY
