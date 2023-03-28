@@ -18,6 +18,7 @@ jobs:
       # This step references the directory that contains the action.
       # - uses: ./.github/actions/hello-world-action
       - name: print a variable
-        env:
-          super_secret: ${{ env.DOCKER_REPOSITORY }}
-        run: echo "$DOCKER_REPOSITORY"
+      - uses: actions/checkout@v3
+      - env:
+          DOCKER_REPOSITORY: ${{ env.DOCKER_REPOSITORY }}
+      - run: echo "$DOCKER_REPOSITORY"
