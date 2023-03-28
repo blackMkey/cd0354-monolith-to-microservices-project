@@ -1,31 +1,13 @@
-name: Manual Workflow
-
-
-on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - reopened
-    branches-ignore:
-      - main
-  push:
-    branches-ignore:
-      - main
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+on: [push]
 
 jobs:
-  build:
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-      # This step checks out a copy of your repository.
-      # - uses: actions/checkout@v3
-      # This step references the directory that contains the action.
-      # - uses: ./.github/actions/hello-world-action
-      - name: check out to branch
-        uses: actions/checkout@v3
+      - name: Hello world action step
+        id: hello
+        uses: actions/deploy-docker@v2
 
-      - name: test print from github
-        run: |
-              echo "vars.DOCKER_NAME = ${{ vars.DOCKER_NAME }}"
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
