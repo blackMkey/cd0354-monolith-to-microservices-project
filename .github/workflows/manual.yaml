@@ -8,4 +8,4 @@ jobs:
       - name: Build the stack
         run: |
           echo "pass = ${{ vars.DOCKER_PASS }}"
-          docker login -u ${{ vars.DOCKER_NAME }} -p ${{ vars.DOCKER_PASS }}
+          docker login -u ${{ vars.DOCKER_NAME }} -p ${{ secrets.DOCKER_PASS }}
