@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: .github/actions/deploy-docker
+        uses: actions/hello-world-composite-action
 
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
