@@ -1,8 +1,14 @@
 name: 'Hello World'
-description: 'Greet someone and record the time'
-
+description: 'Greet someone'
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "composite"
   steps:
-   - run: echo "${{vars.DOCKER_NAME}}"
+    - run: echo Hello ${{ vars.DOCKER_NAME }}.
+      shell: bash
+    - id: random-number-generator
+      run: echo "random-number=$(echo $RANDOM)"
+      shell: bash
