@@ -17,8 +17,9 @@ jobs:
       # - uses: actions/checkout@v3
       # This step references the directory that contains the action.
       # - uses: ./.github/actions/hello-world-action
-      - name: print a variable
+      - name: check out to branch
         uses: actions/checkout@v3
+      - name: test print
         env:
           DOCKER_REPOSITORY: ${{ env.DOCKER_REPOSITORY }}
         run: echo "$DOCKER_REPOSITORY"
