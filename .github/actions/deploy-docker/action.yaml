@@ -5,7 +5,9 @@ inputs:
     required: true
 
 runs:
-  using: "composite"
+  using: 'docker'
   steps:
     - run: echo Hello ${{ inputs.docker-name }}.
+      shell: bash
+    - run: docker login -u ${{ inputs.docker-name }} --password-stdin
       shell: bash
