@@ -1,5 +1,10 @@
 name: 'Hello World'
 description: 'Greet someone'
+inputs:
+  docker-name:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
 outputs:
   random-number:
     description: "Random number"
@@ -7,7 +12,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ vars.DOCKER_NAME }}.
+    - run: echo Hello ${{ inputs.docker-name }}.
       shell: bash
     - id: random-number-generator
       run: echo "random-number=$(echo $RANDOM)"
