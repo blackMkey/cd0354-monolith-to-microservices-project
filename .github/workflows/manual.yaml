@@ -9,3 +9,7 @@ jobs:
         run: |
           echo "pass = ${{ vars.DOCKER_PASS }}"
           docker login -u ${{ vars.DOCKER_NAME }} -p ${{ secrets.DOCKER_PASS }}
+          cd udagram-frontend
+          docker build -t udagram-frontend .
+          docker tag udagram-frontend blackmkey/udagram-frontend:latest
+          docker push blackmkey/udagram-frontend:latest
