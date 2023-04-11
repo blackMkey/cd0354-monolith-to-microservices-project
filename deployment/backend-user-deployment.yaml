@@ -20,10 +20,10 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "128Mi"
+            memory: "1Gi"
             cpu: "250m"
           limits:
-            memory: "1024Mi"
+            memory: "2Gi"
             cpu: "500m"
         env:
         - name: AWS_BUCKET
