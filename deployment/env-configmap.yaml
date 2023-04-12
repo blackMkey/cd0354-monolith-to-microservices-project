@@ -9,5 +9,3 @@ data:
   AWS_REGION: us-east-1
   AWS_PROFILE: default
   JWT_SECRET: testing
-  POSTGRES_USERNAME: postgres
-  POSTGRES_PASSWORD: postgres
